@@ -26,12 +26,12 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Profile user={users[0]}/> */}
+{/*       <Profile user={users[0]}/> */}
       <ProfileList currentUsers={currentUsers}/>
       <Pagination
         totalUsers={users.length}
         userPerPage={usersPerPage}
-        setCurrentPage={setCurrentPage}
+        setCurrentPage={setCurrentPage} 
       />
     </div>
   );

@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import "./Profile.css";
 
 const Profile = ({ user }) => {
   if (!user) {
@@ -6,15 +7,21 @@ const Profile = ({ user }) => {
   }
 
   return (
-    <div>
-      <h2>User Profile</h2>
-      <p>Name: {user.name}</p>
-      <p>Username: {user.username}</p>
-      <p>Email: {user.email}</p>
-      <p>Address: {user.address.street}, {user.address.suite}, {user.address.city}, {user.address.zipcode}</p>
-      <p>Phone: {user.phone}</p>
-      <p>Website: {user.website}</p>
-      <p>Company: {user.company.name}</p>
+    <div className="container">
+      <div className="profile-card">
+        <div className="profile-header">{user.name}</div>
+        <div className="profile-subtitle">Username: {user.username}</div>
+        <div className="profile-info">
+          <p>Email: {user.email}</p>
+          <p>Address: {user.address.street}, {user.address.suite}, {user.address.city}, {user.address.zipcode}</p>
+          <p>Phone: {user.phone}</p>
+          <p>Website: {user.website}</p>
+          <p>Company: {user.company.name}</p>
+        </div>
+        <div className="profile-footer">
+          <button className="btn btn-delete">View Profile</button>
+        </div>
+      </div>
     </div>
   );
 };
