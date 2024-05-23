@@ -3,7 +3,8 @@ import './App.css';
 import Profile from './components/Profile/Profile.jsx'
 import ProfileList from './components/ProfileList/ProfileList.jsx';
 import Pagination from './components/Pagination/Pagination.jsx';
-
+import Navigation from './components/Navigation/Navigation.jsx';
+import PostCard from './components/PostCard/PostCard.jsx';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -26,13 +27,15 @@ function App() {
 
   return (
     <div className="App">
-{/*       <Profile user={users[0]}/> */}
+      <Navigation/>
+{/*       <Profile user={users[0]}/> 
       <ProfileList currentUsers={currentUsers}/>
       <Pagination
         totalUsers={users.length}
         userPerPage={usersPerPage}
         setCurrentPage={setCurrentPage} 
-      />
+      />*/}
+      <PostCard/>
     </div>
   );
 }
