@@ -2,7 +2,7 @@ import React from 'react';
 import Profile from '../Profile/Profile';
 
 const ProfileList = ({currentUsers}) => {
-    if (!currentUsers) {
+  if (!currentUsers || currentUsers.length === 0) {
     return <p>Loading...</p>;
   }
 

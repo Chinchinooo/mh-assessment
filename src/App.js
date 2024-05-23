@@ -5,20 +5,39 @@ import ProfileList from './components/ProfileList/ProfileList.jsx';
 import Pagination from './components/Pagination/Pagination.jsx';
 import Navigation from './components/Navigation/Navigation.jsx';
 import PostCard from './components/PostCard/PostCard.jsx';
+import PostCardList from './components/PostCardList/PostCardList.jsx';
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([])
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage, setUsersPerPage] = useState(2);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
+   useEffect(() => {
+    fetchUsers();
+    fetchPosts();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/users");
       const data = await response.json();
       setUsers(data);
-    };
-    fetchData();
-  }, []);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
+
 
   const lastUserIndex = currentPage * usersPerPage;
   const firstUserIndex = lastUserIndex - usersPerPage;
@@ -35,7 +54,10 @@ function App() {
         userPerPage={usersPerPage}
         setCurrentPage={setCurrentPage} 
       />*/}
-      <PostCard/>
+      <PostCardList
+        posts={posts}
+        users={users}
+      />
     </div>
   );
 }

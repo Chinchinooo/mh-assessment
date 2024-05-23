@@ -1,43 +1,50 @@
 import React from "react";
 
-const PostCard = () => {
-    return(
-<div>
- <div className="mx-3">
-    <section class="w-full">
-        <div class="bg-white shadow-md mb-2 rounded-xl p-4 hover:bg-slate-100 transition duration-350 ease-in-out">
-                <div class="flex-none lg:flex">
-    <ul class="list-none"/>
-<li className=" list-none">
-    <div class="flex flex-shrink-0 p-4 pb-0">
-        <a href="#" class="flex-shrink-0 group block">
-            <div class="flex items-center">
-                <div>
-                    <img class="inline-block h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt=""/>
-                </div>
-                <div class="ml-3">
-                    <p class="text-lg leading-6 font-medium text-black">
-                        Sonali Hirave
-                    </p>
-                </div>
-            </div>
-        </a>
-    </div>
+const PostCard = ({ posts, users }) => {
+  return (
+    <div>
+      {posts.map((post) => {
+        // Find the user corresponding to the post's userId
+        const user = users.find((user) => user.id === post.userId);
 
+        return (
+          <div key={post.id}>
+            <div className="mx-3 flex justify-center items-center">
+              <section className="w-full" style={{ maxWidth: '1000px' }}>
+                <div className="bg-white shadow-md mb-2 rounded-xl p-4 hover:bg-slate-100 transition duration-350 ease-in-out">
+                  <div className="flex-none lg:flex">
+                    <ul className="list-none">
+                      <li className="list-none">
+                        <div className="flex flex-shrink-0 p-4 pb-0">
+                          <a href="#" className="flex-shrink-0 group block">
+                            <div className="flex items-center">
+                              <div>
+                                <img className="inline-block h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
+                              </div>
+                              <div className="ml-3">
+                                <p className="text-lg leading-6 font-medium text-black">
+                                  {user ? user.name : 'Unknown User'}
+                                </p>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
 
-    <div class="pl-16">
-        <p class=" text-justify width-auto font-medium text-gray-800 flex-shrink">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum lacinia quis vel eros. Nec ultrices dui sapien eget mi proin sed. Gravida rutrum quisque non tellus orci ac. Adipiscing elit ut aliquam purus sit amet luctus.
-        </p>
+                        <div className="pl-16">
+                          <p className="text-2xl text-justify width-auto font-medium text-gray-800 flex-shrink pb-2">
+                            {post.title}
+                          </p>
+                          <p className="text-justify width-auto font-medium text-gray-600 flex-shrink">
+                            {post.body}
+                          </p>
 
-        <div class="md:flex-shrink pr-6 pt-3">
-            <div class="bg-cover bg-no-repeat bg-center rounded-lg w-full h-64" style={{height: '200px', backgroundImage: 'url(https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=448&amp;q=80)'}}>
-            <img class="opacity-0 w-full h-full" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=448&amp;q=80" alt=""/>
-        </div>
-        </div>
-
-
-        <div class="flex items-center py-4">
+                          {/* Image
+                            <div className="md:flex-shrink pr-6 pt-3">
+                            <div className="bg-cover bg-no-repeat bg-center rounded-lg w-full h-64" style={{ height: '200px'/* , backgroundImage: 'url(https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=448&amp;q=80)'  }}>
+                              <img className="opacity-0 w-full h-full" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=448&amp;q=80" alt="" />
+                            </div>
+                          </div> */}
+                                  <div class="flex items-center py-4">
             <div class="flex-1 flex justify-center items-center text-black text-xs text-gray-500 hover:text-blue-400 transition duration-350 ease-in-out">
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2">
                 <g>
@@ -71,19 +78,19 @@ const PostCard = () => {
               </svg>
             </div>
           </div>
+                        </div>
 
-    </div>
-            </li>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
             </div>
-        </div>
-        </section>
-        </div>
-
-</div>
-
-    )
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default PostCard;
-
-
