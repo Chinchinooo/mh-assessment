@@ -1,12 +1,6 @@
 import React from "react";
 
-const PostCard = ({ posts, users }) => {
-  return (
-    <div>
-      {posts.map((post) => {
-        // Find the user corresponding to the post's userId
-        const user = users.find((user) => user.id === post.userId);
-
+const PostCard = ({ posts, users, user, post }) => {
         return (
           <div key={post.id}>
             <div className="mx-3 flex justify-center items-center">
@@ -79,7 +73,6 @@ const PostCard = ({ posts, users }) => {
             </div>
           </div>
                         </div>
-
                       </li>
                     </ul>
                   </div>
@@ -88,9 +81,9 @@ const PostCard = ({ posts, users }) => {
             </div>
           </div>
         );
-      })}
+/*       })}
     </div>
-  );
+  ); */
 }
 
 export default PostCard;

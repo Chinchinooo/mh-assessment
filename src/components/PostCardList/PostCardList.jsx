@@ -10,12 +10,14 @@ const PostCardList = ({posts, users}) => {
     <div>
         {
             posts.map((post) => {
-                return(
-                    <PostCard
-                    key={post.id}
-                    post={post}
-                    posts={posts}
-                    users={users}/>
+                const user = users.find((user) => user.id === post.userId);
+                    return(
+                        <PostCard
+                        key={post.id}
+                        post={post}
+                        posts={posts}
+                        users={users}
+                        user={user}/>
                 )
             })
         }
