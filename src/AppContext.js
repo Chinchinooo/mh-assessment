@@ -9,31 +9,34 @@ const AppProvider = ({ children }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage, setUsersPerPage] = useState(2);
 
+    console.log('fromapiuser',users)
+
+
     useEffect(() => {
         fetchUsers();
         fetchPosts();
         fetchComments();
     }, []);
 
-const fetchComments = async () => {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/comments');
-        const data = await response.json();
-        setComments(data);
-      } catch (error) {
-        console.error('Error fetching comments:', error);
-      }
-    };
+    const fetchComments = async () => {
+        try {
+            const response = await fetch('https://jsonplaceholder.typicode.com/comments');
+            const data = await response.json();
+            setComments(data);
+        } catch (error) {
+            console.error('Error fetching comments:', error);
+        }
+        };
 
-  const fetchUsers = async () => {
+const fetchUsers = async () => {
     try {
-      const response = await fetch("https://jsonplaceholder.typicode.com/users");
-      const data = await response.json();
-      setUsers(data);
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const data = await response.json();
+        setUsers(data);
     } catch (error) {
-      console.error("Error fetching users:", error);
+        console.error("Error fetching users:", error);
     }
-  };
+};
 
   const fetchPosts = async () => {
     try {
@@ -55,7 +58,7 @@ const value = {
     setUsersPerPage,
   };
 
-  return <AppContext.Provider value={value}>{}</AppContext.Provider>;
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 
 };
 
