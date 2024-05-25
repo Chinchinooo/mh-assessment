@@ -1,4 +1,4 @@
-.pagination-container {
+ .pagination-container {
   display: flex;
   justify-content: center;
   padding: 1rem 1rem 2rem 1rem;
@@ -30,4 +30,4 @@
 .pagination-number.active {
   color: #4f46e5;
   border-color: #4f46e5;
-}
+} 
