@@ -1,4 +1,5 @@
 import "./ProfileCard.css";
+import React from "react";
 
 
 const ProfileCard = ({user}) => {
