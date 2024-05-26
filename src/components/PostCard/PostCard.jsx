@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from 'react';
+import { AppContext } from '../../AppContext';
 
-const PostCard = ({ posts, users, user, post }) => {
+const PostCard = () => {
+    const { user, post } = useContext(AppContext);
+
         return (
           <div key={post.id}>
             <div className="mx-3 flex justify-center items-center">
