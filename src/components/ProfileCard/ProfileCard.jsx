@@ -1,5 +1,6 @@
 import "./ProfileCard.css";
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const ProfileCard = ({user}) => {
@@ -9,6 +10,7 @@ const ProfileCard = ({user}) => {
   }
 
   return (
+    <Link to={`/users/${user.id}`}>
     <div className="container">
       <div className="profile-card">
         <div className="profile-header">{user.name}</div>
@@ -21,10 +23,10 @@ const ProfileCard = ({user}) => {
           <p>Company: {user.company.name}</p>
         </div>
         <div className="profile-footer">
-          <button className="btn btn-delete">View Profile</button>
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 
