@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 
-const PostCard = () => {
-    const { user, post } = useContext(AppContext);
+const PostCard = ({post, user}) => {
+
+    console.log(post);
 
         return (
           <div key={post.id}>
