@@ -1,8 +1,13 @@
 import React from "react";
 
-const CommentsCard = (comment) => {
+const CommentsCard = ({comment}) => {
+     if (!comment) {
+    return <p>Loading...</p>;
+    }
+
     return(
          <div className=" p-1">
+            <p>this is postid: {comment.postId}</p>
             <p>this is name</p>
             <h3>{comment.name}</h3>
             <p>this is email</p>
