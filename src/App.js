@@ -1,9 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import ProfileCard from './components/ProfileCard/ProfileCard.jsx'
-import ProfileList from './components/ProfileList/ProfileList.jsx';
-import Pagination from './components/Pagination/Pagination.jsx';
 import Navigation from './components/Navigation/Navigation.jsx';
 import PostCard from './components/PostCard/PostCard.jsx';
 import PostCardList from './components/PostCardList/PostCardList.jsx';
@@ -18,7 +15,7 @@ const App = () => {
     <div>
     <Navigation/>
     <Routes>
-        <Route path='/' element={<ProfilePage/>} />
+        <Route path='/' element={<PostCardList/>} />
         <Route path='/users' element={<Users/>} />
         <Route path='/users/:id' element={<ProfilePage/>} />
     </Routes>

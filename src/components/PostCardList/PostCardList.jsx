@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../../AppContext';
 import PostCard from '../PostCard/PostCard';
 
-const PostCardList = ({posts, users}) => {
+const PostCardList = () => {
+    const { users, posts} = useContext(AppContext);
+
     if (!posts) {
     return <p>Loading...</p>;
   }

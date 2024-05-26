@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import Profile from '../ProfileCard/ProfileCard';
 import { AppContext } from '../../AppContext';
+import Profile from '../ProfileCard/ProfileCard';
 
 
 
