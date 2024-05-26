@@ -4,10 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation.jsx';
 import PostCard from './components/PostCard/PostCard.jsx';
 import PostCardList from './components/PostCardList/PostCardList.jsx';
-import PostwithComment from './components/PostwithComment/PostwithComment.jsx';
 import CommentsCard from './components/CommentsCard/CommentsCard.jsx';
 import ProfilePage from './components/ProfilePage/ProfilePage.jsx';
-import Users from './pages/users.jsx';
+import Users from './pages/Users.jsx';
 import { AppProvider } from './AppContext.js';
 
 const App = () => {

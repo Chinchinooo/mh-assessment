@@ -3,7 +3,7 @@ import PostCard from '../components/PostCard/PostCard';
 import CommentsCard from '../components/CommentsCard/CommentsCard'
 import CommentsList from '../components/CommentsList/CommentList';
 
-const Users = () => {
+const PostWithComments = () => {
   return (
     <div>
       <PostCard />
@@ -12,4 +12,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default PostWithComments;
