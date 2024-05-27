@@ -18,10 +18,10 @@ const CommentsCard = ({comment}) => {
                           <a href="#" className="flex-shrink-0 group block">
                             <div className="flex items-center">
                               <div>
-                                <img className="inline-block h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
+                                <img className="inline-block h-6 w-6 rounded-full" src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
                               </div>
                               <div className="ml-3">
-                                <p className="text-lg leading-6 font-medium text-black">
+                                <p className="text-base leading-6 font-medium text-black">
                                   {comment.name}
                                 </p>
                               </div>
@@ -33,7 +33,7 @@ const CommentsCard = ({comment}) => {
                           <p className="text-sm text-justify width-auto font-medium text-gray-600 flex-shrink pb-2">
                             {comment.email}
                           </p>
-                          <p className="text-justify width-auto font-medium text-gray-600 flex-shrink">
+                          <p className="text-justify text-base width-auto font-medium text-gray-600 flex-shrink">
                             {comment.body}
                           </p>
                         </div>
