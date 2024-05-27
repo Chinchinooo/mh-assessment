@@ -9,16 +9,29 @@ const Pagination = ({itemsPerPage, data}) => {
     return <div>Loading...</div>; 
   }
 
-  let totalItems = data.length
+  let totalItems = data.length;
+  let totalPages = Math.ceil(totalItems / itemsPerPage);
   let pages = [];
-  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
 
-  return (
+  const maxPagesToShow = 6;
+  let startPage = Math.max(currentPage - 3, 1);
+  let endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
+  if (endPage - startPage + 1 < maxPagesToShow && startPage > 1) {
+    startPage = Math.max(endPage - maxPagesToShow + 1, 1);
+  }
+
+return (
     <div className="pagination-container">
       <div className="pagination">
-        {pages.map((page, index) => (
+        {startPage > 1 && (
+          <div className="pagination-number" onClick={() => setCurrentPage(startPage - 1)}>
+            &lt;
+          </div>
+        )}
+        {pages.slice(startPage - 1, endPage).map((page, index) => (
           <div
             key={index}
             className={`pagination-number ${currentPage === page ? 'active' : ''}`}
@@ -27,6 +40,11 @@ const Pagination = ({itemsPerPage, data}) => {
             {page}
           </div>
         ))}
+        {endPage < totalPages && (
+          <div className="pagination-number" onClick={() => setCurrentPage(endPage + 1)}>
+            &gt;
+          </div>
+        )}
       </div>
     </div>
   );

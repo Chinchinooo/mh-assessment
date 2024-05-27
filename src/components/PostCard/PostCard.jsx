@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 const PostCard = ({post, user}) => {
 
-    console.log(post);
-
         return (
           <div key={post.id}>
             <div className="mx-3 flex justify-center items-center">
