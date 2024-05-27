@@ -32,12 +32,12 @@ const DashboardChart = () => {
         setAverageComments(averageCommentsPerPost);
         console.log('comment', averageCommentsPerPost)
 
-        const commentCounts = {}; // To count comments per post
-        const userCommentCounts = {}; // To count comments per user per post
-        const postIds = new Set(); // To keep track of unique post IDs
+        const commentCounts = {};
+        const userCommentCounts = {};
+        const postIds = new Set(); 
 
 
-        // Count comments per post and comments per user per post
+ 
         comments.forEach(comment => {
             if (!commentCounts[comment.postId]) {
                 commentCounts[comment.postId] = 0;
