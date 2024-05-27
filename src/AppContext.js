@@ -9,9 +9,6 @@ const AppProvider = ({ children }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage, setUsersPerPage] = useState(2);
 
-    console.log('fromapiuser',users)
-
-
     useEffect(() => {
         fetchUsers();
         fetchPosts();
