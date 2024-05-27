@@ -1,4 +1,3 @@
-import "./ProfileCard.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -11,21 +10,43 @@ const ProfileCard = ({user}) => {
 
   return (
     <Link to={`/users/${user.id}`}>
-    <div className="container">
-      <div className="profile-card">
-        <div className="profile-header">{user.name}</div>
-        <div className="profile-subtitle">Username: {user.username}</div>
-        <div className="profile-info">
-          <p>Email: {user.email}</p>
-          <p>Address: {user.address.street}, {user.address.suite}, {user.address.city}, {user.address.zipcode}</p>
-          <p>Phone: {user.phone}</p>
-          <p>Website: {user.website}</p>
-          <p>Company: {user.company.name}</p>
+    <div>
+            <div className="mx-3 flex justify-center items-center">
+              <section className="w-full" style={{ maxWidth: '1000px' }}>
+                <div className="bg-white shadow-md mb-2 rounded-xl p-4 hover:bg-slate-100 transition duration-350 ease-in-out">
+                  <div className="flex-none lg:flex">
+                    <ul className="list-none">
+                      <li className="list-none">
+                        <div className="flex flex-shrink-0 p-4 pb-0">
+                          <a href="#" className="flex-shrink-0 group block">
+                            <div className="flex items-center">
+                              <div>
+                                <img className="inline-block h-6 w-6 rounded-full" src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
+                              </div>
+                              <div className="ml-3">
+                                <p className="text-xl leading-6 font-medium text-black">
+                                 {user.name}
+                                </p>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+
+                        <div className="pl-16">
+                          <p className="text-base pt-1 text-justify width-auto font-medium text-gray-600 flex-shrink pb-2">
+                            Email: {user.email}
+                          </p>
+                          <p className="text-justify text-base width-auto font-medium text-gray-600 flex-shrink">
+                            Phone: {user.phone}
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            </div>
         </div>
-        <div className="profile-footer">
-        </div>
-      </div>
-    </div>
     </Link>
   );
 };
