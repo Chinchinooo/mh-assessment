@@ -30,7 +30,6 @@ const DashboardChart = () => {
         const uniquePosts = new Set(comments.map(comment => comment.postId)).size;
         const averageCommentsPerPost = uniquePosts > 0 ? totalComments / uniquePosts : 0;
         setAverageComments(averageCommentsPerPost);
-        console.log('comment', averageCommentsPerPost)
 
         const commentCounts = {};
         const userCommentCounts = {};
@@ -53,7 +52,6 @@ const DashboardChart = () => {
             }
         });
 
-        // Calculate average comments per user per post
         const averagesPerUser = Array.from(postIds).map(postId => {
             const uniqueUsers = Object.keys(userCommentCounts[postId]).length;
             return commentCounts[postId] / uniqueUsers;
@@ -64,8 +62,6 @@ const DashboardChart = () => {
         const averagePerUser = totalAveragePerUser / postIds.size;
         setAverageCommentsPerUser(averagePerUser);
 
-        console.log('user', averagesPerUser)
-        // Update state
         setCommentData({
             labels: Array.from(postIds),
             datasets: [
