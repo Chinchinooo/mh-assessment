@@ -8,11 +8,11 @@ const Users = () => {
   return (
     <div>
       <ProfileList
-      itemsPerPage={2}
+      itemsPerPage={5}
       />
       <Pagination
       data={filteredUsers}
-      itemsPerPage={2}
+      itemsPerPage={5}
       /> 
     </div>
   );
