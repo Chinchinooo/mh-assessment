@@ -9,6 +9,7 @@ const AppProvider = ({ children }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage, setUsersPerPage] = useState(2);
     const [filteredUsers, setFilteredUsers] = useState([]);
+    const [filteredPosts, setFilteredPosts] = useState([]);
 
     useEffect(() => {
         fetchUsers();
@@ -56,7 +57,9 @@ const value = {
     usersPerPage,
     setUsersPerPage,
     filteredUsers,
-    setFilteredUsers
+    setFilteredUsers,
+    filteredPosts,
+    setFilteredPosts
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
