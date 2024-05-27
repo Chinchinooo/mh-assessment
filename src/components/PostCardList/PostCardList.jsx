@@ -2,17 +2,21 @@ import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 import PostCard from '../PostCard/PostCard';
 
-const PostCardList = () => {
-    const { users, filteredPosts} = useContext(AppContext);
+const PostCardList = ({itemsPerPage}) => {
+    const { users, filteredPosts, currentPage} = useContext(AppContext);
 
-    if (!filteredPosts || filteredPosts.length === 0) {
+    const lastUserIndex = currentPage * itemsPerPage;
+    const firstUserIndex = lastUserIndex - itemsPerPage;
+    const currentPosts = filteredPosts.slice(firstUserIndex, lastUserIndex);
+
+    if (!currentPosts || currentPosts.length === 0) {
     return <p>No Post Found...</p>;
   }
 
   return (
     <div>
         {
-            filteredPosts.map((post) => {
+            currentPosts.map((post) => {
                 const user = users.find((user) => user.id === post.userId);
                     return(
                         <PostCard

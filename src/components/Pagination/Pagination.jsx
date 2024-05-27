@@ -5,7 +5,6 @@ import { AppContext } from '../../AppContext';
 const Pagination = ({itemsPerPage, data}) => {
   const { setCurrentPage, currentPage } = useContext(AppContext);
   
-  console.log('users',data)
     if (!data) {
     return <div>Loading...</div>; 
   }
