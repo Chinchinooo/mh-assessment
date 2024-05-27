@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import './Pagination.css';
 import { AppContext } from '../../AppContext';
 
-const Pagination = ({itemsPerPage, data}) => {
+const Pagination = ({ itemsPerPage, data }) => {
   const { setCurrentPage, currentPage } = useContext(AppContext);
-  
-    if (!data) {
-    return <div>Loading...</div>; 
+
+  if (!data) {
+    return <div>Loading...</div>;
   }
 
   let totalItems = data.length;
@@ -19,11 +19,12 @@ const Pagination = ({itemsPerPage, data}) => {
   const maxPagesToShow = 6;
   let startPage = Math.max(currentPage - 3, 1);
   let endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
+
   if (endPage - startPage + 1 < maxPagesToShow && startPage > 1) {
     startPage = Math.max(endPage - maxPagesToShow + 1, 1);
   }
 
-return (
+  return (
     <div className="pagination-container">
       <div className="pagination">
         {startPage > 1 && (
