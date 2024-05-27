@@ -4,12 +4,12 @@ import Profile from '../ProfileCard/ProfileCard';
 
 
 
-const ProfileList = () => {
-  const { filteredUsers, currentPage, usersPerPage} = useContext(AppContext);
+const ProfileList = ({itemsPerPage}) => {
+  const { filteredUsers, currentPage} = useContext(AppContext);
 
 
-  const lastUserIndex = currentPage * usersPerPage;
-  const firstUserIndex = lastUserIndex - usersPerPage;
+  const lastUserIndex = currentPage * itemsPerPage;
+  const firstUserIndex = lastUserIndex - itemsPerPage;
   const currentUsers = filteredUsers.slice(firstUserIndex, lastUserIndex);
 
   if (!currentUsers || currentUsers.length === 0) {

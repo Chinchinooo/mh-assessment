@@ -2,16 +2,17 @@ import React, { useContext } from 'react';
 import './Pagination.css';
 import { AppContext } from '../../AppContext';
 
-const Pagination = () => {
-  const { filteredUsers, usersPerPage, setCurrentPage, currentPage } = useContext(AppContext);
+const Pagination = ({itemsPerPage, data}) => {
+  const { setCurrentPage, currentPage } = useContext(AppContext);
   
-    if (!filteredUsers) {
+  console.log('users',data)
+    if (!data) {
     return <div>Loading...</div>; 
   }
 
-  let totalUsers = filteredUsers.length
+  let totalItems = data.length
   let pages = [];
-  for (let i = 1; i <= Math.ceil(totalUsers / usersPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pages.push(i);
   }
 
