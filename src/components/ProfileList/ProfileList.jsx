@@ -13,7 +13,7 @@ const ProfileList = () => {
   const currentUsers = filteredUsers.slice(firstUserIndex, lastUserIndex);
 
   if (!currentUsers || currentUsers.length === 0) {
-    return <p>Loading...</p>;
+    return <p>No User Found...</p>;
   }
 
   return (
