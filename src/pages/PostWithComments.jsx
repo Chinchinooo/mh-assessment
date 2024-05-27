@@ -7,7 +7,7 @@ const PostWithComments = () => {
   const {users} = useContext(AppContext)
 
     const { id } = useParams();
-/*     const [selectedPost, setSelectedPost] = useState([]);
+    const [selectedPost, setSelectedPost] = useState([]);
 
 
 
@@ -19,14 +19,12 @@ const PostWithComments = () => {
         } catch (error) {
             console.error('Error fetching comments:', error);
         }
-        }; */
+        }; 
 
-    const response = fetch(`https://jsonplaceholder.typicode.com/posts?id=${id}`);
-            const selectedPost =  response.json();
 
-/*     useEffect(() => {
+     useEffect(() => {
         fetchSelectedPost();
-    }, [id]); */
+    }, [id]);
 
   
      const getUser = (post) => {
