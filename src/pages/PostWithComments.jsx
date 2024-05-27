@@ -25,7 +25,6 @@ const PostWithComments = () => {
             const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
             const data = await response.json();
             setSelectedComment(data); 
-            console.log('seletecC', data)
         } catch (error) {
             console.error('Error fetching comments:', error);
         }
