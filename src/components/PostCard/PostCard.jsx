@@ -21,7 +21,7 @@ const PostCard = ({post, user}) => {
                               </div>
                               <div className="ml-3">
                                 <p className="text-lg leading-6 font-medium text-black">
-                                  {user ? user.name : 'Unknown User'}
+                                  {user.name}
                                 </p>
                               </div>
                             </div>
