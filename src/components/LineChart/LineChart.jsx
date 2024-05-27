@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 import { AppContext } from "../../AppContext";
 import { Chart } from "chart.js/auto";
 
@@ -8,46 +8,71 @@ const LineChart = () => {
 
     const [commentData, setCommentData] = useState({
         labels: [],
-        datasets: [{
-            label: "Average Comment Per Post",
-            data: []
-        }]
+        datasets: [
+            {
+                label: "",
+                data: [],
+                type: 'line'
+            },
+            {
+                label: "",
+                data: [],
+                type: 'bar'
+            }
+        ]
     });
 
     useEffect(() => {
-    const totalComments = comments.length;
-    const uniquePosts = new Set(comments.map(comment => comment.postId)).size;
-    const averageCommentsPerPost = totalComments / uniquePosts;
+        const totalComments = comments.length;
+        const uniquePosts = new Set(comments.map(comment => comment.postId)).size;
+        const averageCommentsPerPost = uniquePosts > 0 ? totalComments / uniquePosts : 0;
 
-    const commentCounts = {}; // Initialize commentCounts as an empty object
-    const postIds = []; // Initialize postIds as an empty array
+        const commentCounts = {}; // To count comments per post
+        const userCommentCounts = {}; // To count comments per user per post
+        const postIds = new Set(); // To keep track of unique post IDs
 
-    // Count comments per post
-    comments.forEach(comment => {
-        if (commentCounts[comment.postId]) {
-            commentCounts[comment.postId].push(comment.commentId);
-        } else {
-            commentCounts[comment.postId] = [comment.commentId];
-            postIds.push(comment.postId);
-        }
-    });
+        // Count comments per post and comments per user per post
+        comments.forEach(comment => {
+            if (!commentCounts[comment.postId]) {
+                commentCounts[comment.postId] = 0;
+                userCommentCounts[comment.postId] = {};
+                postIds.add(comment.postId);
+            }
+            commentCounts[comment.postId]++;
 
-        // Calculate average comments per post
-    const averages = postIds.map(postId => commentCounts[postId].length);
+            if (userCommentCounts[comment.postId][comment.name]) {
+                userCommentCounts[comment.postId][comment.name]++;
+            } else {
+                userCommentCounts[comment.postId][comment.name] = 1;
+            }
+        });
+
+        // Calculate average comments per user per post
+        const averagesPerUser = Array.from(postIds).map(postId => {
+            const uniqueUsers = Object.keys(userCommentCounts[postId]).length;
+            return uniqueUsers > 0 ? commentCounts[postId] / uniqueUsers : 0;
+        });
 
         // Update state
         setCommentData({
-        labels: Array.from(new Set(comments.map(comment => comment.postId))),
-        datasets: [{
-            label: "Average Comment Per Post",
-            data: Array(uniquePosts).fill(averageCommentsPerPost)
-        }]
+            labels: Array.from(postIds),
+            datasets: [
+                {
+                    label: "Comment Per Post",
+                    data: Array.from(postIds).map(() => averageCommentsPerPost),
+                    type: 'line'
+                },
+                {
+                    label: "Comment Per User Per Post",
+                    data: averagesPerUser,
+                    type: 'bar'
+                }
+            ]
         });
-        }, [comments]); // Recalculate when comments change
-            console.log('commentData', commentData)
+    }, [comments]);
 
     return (
-        <div className=" w-8/12">
+        <div className="w-8/12">
             <Line data={commentData} />
         </div>
     );
