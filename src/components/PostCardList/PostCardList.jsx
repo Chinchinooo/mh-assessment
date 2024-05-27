@@ -3,22 +3,22 @@ import { AppContext } from '../../AppContext';
 import PostCard from '../PostCard/PostCard';
 
 const PostCardList = () => {
-    const { users, posts} = useContext(AppContext);
+    const { users, filteredPosts} = useContext(AppContext);
 
-    if (!posts) {
-    return <p>Loading...</p>;
+    if (!filteredPosts || filteredPosts.length === 0) {
+    return <p>No Post Found...</p>;
   }
 
   return (
     <div>
         {
-            posts.map((post) => {
+            filteredPosts.map((post) => {
                 const user = users.find((user) => user.id === post.userId);
                     return(
                         <PostCard
                         key={post.id}
                         post={post}
-                        posts={posts}
+                        posts={filteredPosts}
                         users={users}
                         user={user}/>
                 )

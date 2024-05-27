@@ -7,26 +7,33 @@ import { AppContext } from '../../AppContext';
 
 const Navigation = () => {
 
-  const { users, setFilteredUsers, filteredUsers } = useContext(AppContext)
+  const { users, setFilteredUsers, setFilteredPosts, posts } = useContext(AppContext)
 
   const [searchBox, setSearchBox] = useState('');
 
-   useEffect(() => {
+  useEffect(() => {
   if (searchBox.trim() === '') {
     setFilteredUsers(users);
+    setFilteredPosts(posts); 
   } else {
-    const filteredCard = users.filter(user => {
-      return user.name.toLocaleLowerCase().includes(searchBox.toLowerCase());
-    });
+    const filteredUsers = users.filter(user => 
+      user.name.toLowerCase().includes(searchBox.toLowerCase())
+    );
+    const filteredPosts = posts.filter(post => 
+      post.title.toLowerCase().includes(searchBox.toLowerCase())
+    );
 
-    setFilteredUsers(filteredCard);
-    console.log(filteredCard);
+    setFilteredUsers(filteredUsers);
+    setFilteredPosts(filteredPosts);
 
-    if (filteredCard.length === 0) {
-      console.log("No results found");
+    if (filteredUsers.length === 0) {
+      console.log("No user results found");
+    }
+    if (filteredPosts.length === 0) {
+      console.log("No post results found");
     }
   }
-}, [searchBox, users]);
+  }, [searchBox, users, posts]);
 
 
   const onSearchChange = (event) => {
