@@ -7,8 +7,6 @@ const ProfilePage = () => {
     const { id } = useParams();
     const user = users.find(user => user.id === parseInt(id));
 
-
-
     if (!users.length) {
     return <p>Loading...</p>;
     }
