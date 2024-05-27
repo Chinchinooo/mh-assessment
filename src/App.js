@@ -25,8 +25,3 @@ const App = () => {
 }
 
 export default App;
-
-
-//profile show the info
-// fetch the info from API
-// setInitialState - first profile
