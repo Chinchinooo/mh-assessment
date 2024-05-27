@@ -7,7 +7,6 @@ const AppProvider = ({ children }) => {
     const [posts, setPosts] = useState([]);
     const [comments, setComments] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [usersPerPage, setUsersPerPage] = useState(2);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [filteredPosts, setFilteredPosts] = useState([]);
 
@@ -54,8 +53,6 @@ const value = {
     comments,
     currentPage,
     setCurrentPage,
-    usersPerPage,
-    setUsersPerPage,
     filteredUsers,
     setFilteredUsers,
     filteredPosts,
