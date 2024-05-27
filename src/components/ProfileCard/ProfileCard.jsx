@@ -21,7 +21,7 @@ const ProfileCard = ({user}) => {
                           <a href="#" className="flex-shrink-0 group block">
                             <div className="flex items-center">
                               <div>
-                                <img className="inline-block h-6 w-6 rounded-full" src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
+                                <img className="inline-block h-10 w-10 rounded-full shadow-lg" src={`https://robohash.org/${user.name}`} alt="" />
                               </div>
                               <div className="ml-3">
                                 <p className="text-xl leading-6 font-medium text-black">
