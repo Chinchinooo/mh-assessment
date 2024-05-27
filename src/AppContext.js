@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
     const [comments, setComments] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage, setUsersPerPage] = useState(2);
+    const [filteredUsers, setFilteredUsers] = useState([]);
 
     useEffect(() => {
         fetchUsers();
@@ -45,6 +46,7 @@ const fetchUsers = async () => {
     }
   };
 
+
 const value = {
     users,
     posts,
@@ -53,6 +55,8 @@ const value = {
     setCurrentPage,
     usersPerPage,
     setUsersPerPage,
+    filteredUsers,
+    setFilteredUsers
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
