@@ -1,17 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import ProfileList from '../components/ProfileList/ProfileList';
 import Pagination from '../components/Pagination/Pagination';
 import { AppContext } from '../AppContext';
-import { useLocation } from 'react-router-dom';
 
 const Users = () => {
-  const {filteredUsers, setCurrentPage} = useContext(AppContext)
-  const location = useLocation();
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [location]); 
-
+  const {filteredUsers} = useContext(AppContext)
   return (
     <div>
       <ProfileList
