@@ -10,7 +10,7 @@ const Users = () => {
   
   useEffect(() => {
     setCurrentPage(1);
-  }, [location]);
+  }, [location, setCurrentPage]);
 
   return (
     <div>
