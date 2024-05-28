@@ -9,12 +9,11 @@ import { AppProvider } from './AppContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename='/mh-assessment'>
+    <BrowserRouter>
       <AppProvider>
         <App />
       </AppProvider>
     </BrowserRouter>
-
   </React.StrictMode>
 );
 reportWebVitals();

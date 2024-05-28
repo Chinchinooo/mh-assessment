@@ -13,12 +13,12 @@ const App = () => {
     <div>
     <Navigation/>
     <Routes>
-        <Route path='/' element={<Posts/>} />
-        <Route path='/posts' element={<Posts/>} />
-        <Route path='/posts/:id/comments' element={<PostWithComments/>} />
-        <Route path='/users' element={<Users/>} />
-        <Route path='/users/:id' element={<ProfilePage/>} />
-        <Route path='/dashboard' element={<DashboardChart/>} />
+        <Route path='/mh-assessment' element={<Posts/>} />
+        <Route path='/mh-assessment/posts' element={<Posts/>} />
+        <Route path='/mh-assessment/posts/:id/comments' element={<PostWithComments/>} />
+        <Route path='/mh-assessment/users' element={<Users/>} />
+        <Route path='/mh-assessment/users/:id' element={<ProfilePage/>} />
+        <Route path='/mh-assessment/dashboard' element={<DashboardChart/>} />
     </Routes>
     </div>
   );
