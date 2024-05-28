@@ -1,10 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Pagination from '../components/Pagination/Pagination';
 import PostCardList from '../components/PostCardList/PostCardList';
+import { useLocation } from 'react-router-dom';
 import { AppContext } from '../AppContext';
 
 const Posts = () => {
-  const {filteredPosts} = useContext(AppContext)
+  const {filteredPosts, setCurrentPage} = useContext(AppContext);
+  const location = useLocation();
+
+  useEffect(() => {
+  setCurrentPage(1);
+}, [location]);
 
   return (
     <div>
