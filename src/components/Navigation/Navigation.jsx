@@ -11,7 +11,7 @@ const Navigation = () => {
   const [searchBox, setSearchBox] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
-  const showSearchBar = location.pathname === '/posts' || location.pathname === '/users';
+  const showSearchBar = location.pathname === '/posts' || location.pathname === '/users' || location.pathname === '/' ;
 
   useEffect(() => {
     if (searchBox.trim() === '') {
